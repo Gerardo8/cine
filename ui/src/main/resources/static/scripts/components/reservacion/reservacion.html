@@ -1,0 +1,61 @@
+<div class="row row-offcanvas row-offcanvas-right">
+    <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" >
+        <div class="thumbnail">
+            <br>
+            <img ng-src="assets/images/{{funcion.pelicula.nombreImagen}}" alt="No se encontro imagen">
+            <div class="caption">
+                <h4>{{funcion.pelicula.titulo}}</h4>
+                <h6>Genero: {{funcion.pelicula.genero}}</h6>
+                <h6>Pa&iacute;s: {{funcion.pelicula.pais}}</h6>
+                <h6>Clasificaci&oacute;n: {{funcion.pelicula.clasificacion}}</h6>
+                <h6>Duraci&oacute;n: {{funcion.pelicula.duracion}} min</h6>
+                <h6>Sinopsis:  {{funcion.pelicula.sinopsis}}</h6>
+            </div>
+            <div class="caption">
+                <h4>Funcion</h4>
+                <h6>Sala: {{funcion.sala.nombre}}</h6>
+                <h6>Fecha: {{funcion.fecha | date:'medium'}}</h6>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-9">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="col-md-6 col-sm-offset-3">
+                    <form ng-submit="reservar(funcion)">
+                        <h3>Datos Personales</h3>
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control" ng-model="reservacion.nombreCliente" name="nombreCliente" placeholder="Ingresa tu nombre completo" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" class="form-control" ng-model="reservacion.emailCliente" name="emailCliente" placeholder="Ingresa tu correo electr&oacute;nico" required>
+                        </div>
+                        <h3>Datos de pago</h3>
+                        <div class="form-group">
+                            <label>N&uacute;mero de tarjeta</label>
+                            <input type="text" class="form-control" placeholder="N&uacute;mero de tarjeta" required>
+                        </div>
+                        <div class="form-group">
+                            <label>C&oacute;digo de seguridad</label>
+                            <input type="text" class="form-control" maxlength="3" placeholder="C&oacute;digo de seguridad" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Fecha de vencimiento</label>
+                            <select class="form-control">
+                                <option disabled selected>Mes</option>
+                                <option ng-repeat="mes in meses" value="{{mes}}">{{mes}}</option>
+                            </select>
+                            <select class="form-control" required>
+                                <option disabled selected>A&ntilde;o</option>
+                                <option ng-repeat="year in years" value="{{year}}">{{year}}</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Reservar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

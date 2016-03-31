@@ -1,0 +1,51 @@
+<div class="col-xs-12 col-sm-9">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h5>Sala: {{funcion.sala.nombre}}</h5>
+            <h5>Fecha: {{funcion.fecha | date:'medium'}}</h5>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-md-10 col-sm-offset-1">
+                <div ng-repeat="fila in funcion.sala.filas" class="row">
+                    <div class="col-xs-1">
+                        {{fila.fila}}
+                    </div>
+                    <div class="checkbox-inline" ng-repeat="asiento in fila.asientos">
+                        <label>
+                            <input  type="checkbox"  ng-model="asiento.seleccionado"  ng-disabled="asiento.deshabilitado"
+                                    value="false" ng-change="setCantidad(asiento.seleccionado,fila.fila,asiento.numero)">
+                            {{asiento.numero}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <td>Cantidad</td>
+                            <td>Precio</td>
+                            <td>Total</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{cantidad}}</td>
+                            <td>{{precio | currency}}</td>
+                            <td>{{total | currency}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <a class="btn btn-primary" ng-click="goToReservacion(funcion,total,asientos)">Siguiente</a>
+            </div>
+        </div>
+    </div>
+</div>

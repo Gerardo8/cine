@@ -1,0 +1,27 @@
+<div class="row row-offcanvas row-offcanvas-right">
+    <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" >
+        <div class="thumbnail">
+            <br>
+            <img ng-src="assets/images/{{pelicula.nombreImagen}}" alt="No se encontro imagen">
+            <div class="caption">
+                <h4>{{pelicula.titulo}}</h4>
+                <h6>Genero: {{pelicula.genero}}</h6>
+                <h6>Pa&iacute;s: {{pelicula.pais}}</h6>
+                <h6>Clasificaci&oacute;n: {{pelicula.clasificacion}}</h6>
+                <h6>Duraci&oacute;n: {{pelicula.duracion}} min</h6>
+                <h6>Sinopsis:  {{pelicula.sinopsis}}</h6>
+            </div>
+            <div class="caption">
+                <h4>Funciones</h4>
+                <ul class="list-inline" >
+                    <li ng-repeat="funcion in funciones | orderBy:'funcion.fecha'">
+                        <a class="btn-link" ui-sref="pelicula.funcion({funcionId:funcion.funcionId})">{{funcion.fecha | date:'medium'}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <ui-view>
+
+    </ui-view>
+</div>

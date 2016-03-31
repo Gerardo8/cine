@@ -1,0 +1,26 @@
+<div class="col-xs-12 col-sm-12">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-md-6 col-sm-offset-4">
+                <h1><strong>Gracias por su compra</strong></h1>
+                <br>
+                <br>
+                <h4>Pel&iacute;cula: {{reservacion.nombrePelicula}}</h4>
+                <h4>Fecha: {{reservacion.fechaFuncion | date:'medium'}}</h4>
+                <h4>Sala: {{reservacion.nombreSala}}</h4>
+                <ul class="list-unstyled">
+                    <li><h4>Lugares: </h4>
+                        <ul ng-repeat="asiento in reservacion.asientos" class="list-unstyled">
+                            <li><h6>{{asiento}}</h6></li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+                <br>
+                <div>
+                    <button  class="btn btn-success" ng-click="goToHome()"><h4>Ir a Inicio</h4></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

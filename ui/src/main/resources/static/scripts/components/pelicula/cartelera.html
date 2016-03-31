@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-sm-6 col-md-2" ng-repeat="pelicula in peliculas">
+        <div class="thumbnail">
+            <br>
+            <img ui-sref="pelicula({peliculaId:pelicula.peliculaId})" ng-src="assets/images/{{pelicula.nombreImagen}}" alt="No se encontro imagen">
+            <div class="caption">
+                <a ui-sref="pelicula({peliculaId:pelicula.peliculaId})"><h6>{{pelicula.titulo}}</h6></a>
+                <h6>Genero: {{pelicula.genero}}</h6>
+                <h6>Pa&iacute;s: {{pelicula.pais}}</h6>
+                <h6>Clasificaci&oacute;n: {{pelicula.clasificacion}}</h6>
+                <h6>Duraci&oacute;n: {{pelicula.duracion}} min</h6>
+            </div>
+        </div>
+    </div>
+</div>
